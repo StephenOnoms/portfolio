@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stephen Tiliki — Copywriter Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0e0e0e;
+    --ink-soft: #444;
+    --ink-muted: #888;
+    --paper: #faf8f3;
+    --cream: #f2ede3;
+    --rule: #d8d2c6;
+    --accent: #c05a2a;
+    --accent-pale: #f5ede7;
+    --blue-dark: #1a2e4a;
+    --green-mid: #2d6a4f;
+    --gold: #b8860b;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--ink-soft);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    padding: 5rem 2.5rem 4rem;
+    max-width: 860px; margin: 0 auto;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-eyebrow {
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.15;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.1rem; color: var(--ink-soft);
+    max-width: 620px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+  .hero-meta {
+    display: flex; gap: 2.5rem; flex-wrap: wrap;
+    font-size: 0.85rem; color: var(--ink-muted);
+  }
+  .hero-meta span strong { color: var(--ink); font-weight: 500; }
+
+  /* INDEX BAR */
+  .index-bar {
+    background: var(--cream);
+    border-bottom: 1px solid var(--rule);
+    padding: 1.2rem 2.5rem;
+    display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
+  }
+  .index-label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-right: 1rem;
+  }
+  .index-chip {
+    font-size: 0.82rem; font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    background: var(--paper);
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .index-chip:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-pale); }
+
+  /* MAIN LAYOUT */
+  .main { max-width: 860px; margin: 0 auto; padding: 0 2.5rem 6rem; }
+
+  /* SECTION HEADER */
+  .section-header {
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3rem;
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 700;
+    color: var(--cream);
+    line-height: 1;
+    user-select: none;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+  }
+  .section-title-group { flex: 1; }
+  .section-kicker {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem; font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .section-desc {
+    font-size: 0.9rem; color: var(--ink-muted);
+    max-width: 260px; text-align: right;
+    line-height: 1.5;
+  }
+
+  /* SAMPLE CARD */
+  .sample-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+  .sample-card-header {
+    padding: 1.8rem 2rem 1.4rem;
+    border-bottom: 1px solid var(--cream);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+  }
+  .sample-type {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-muted);
+    margin-bottom: 0.5rem;
+  }
+  .sample-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .sample-badge {
+    font-size: 0.72rem; font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge-article { background: #e8f4ea; color: #2d6a4f; }
+  .badge-whitepaper { background: #e8edf5; color: #1a2e4a; }
+  .badge-product { background: #f5ede7; color: #c05a2a; }
+  .badge-guide { background: #fef7e0; color: #b8860b; }
+  .badge-editorial { background: #f0ebf7; color: #5b2d8e; }
+
+  .sample-body {
+    padding: 2rem;
+    font-size: 0.97rem;
+    color: var(--ink-soft);
+    line-height: 1.85;
+  }
+  .sample-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem; font-weight: 700;
+    color: var(--ink);
+    margin: 1.8rem 0 0.6rem;
+  }
+  .sample-body h2:first-child { margin-top: 0; }
+  .sample-body h3 {
+    font-size: 0.92rem; font-weight: 500;
+    color: var(--ink);
+    margin: 1.4rem 0 0.4rem;
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .sample-body p { margin-bottom: 1rem; }
+  .sample-body p:last-child { margin-bottom: 0; }
+  .sample-body ul {
+    padding-left: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .sample-body li { margin-bottom: 0.4rem; }
+  .sample-body blockquote {
+    border-left: 3px solid var(--accent);
+    padding: 0.8rem 1.2rem;
+    margin: 1.5rem 0;
+    background: var(--accent-pale);
+    border-radius: 0 2px 2px 0;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .sample-body .highlight-box {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .sample-body .stat-row {
+    display: flex; gap: 2rem; flex-wrap: wrap;
+    margin: 1.5rem 0; padding: 1.2rem 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .sample-body .stat { text-align: center; flex: 1; min-width: 100px; }
+  .sample-body .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700;
+    color: var(--accent); display: block;
+  }
+  .sample-body .stat-label {
+    font-size: 0.78rem; color: var(--ink-muted);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  .sample-footer {
+    padding: 1rem 2rem;
+    background: var(--cream);
+    border-top: 1px solid var(--rule);
+    display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    font-size: 0.8rem; color: var(--ink-muted);
+  }
+  .sample-footer span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* DIVIDER */
+  .ornament {
+    text-align: center;
+    color: var(--rule);
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+    padding: 1rem 0 2rem;
+  }
+
+  /* ABOUT STRIP */
+  .about-strip {
+    background: var(--blue-dark);
+    color: white;
+    padding: 4rem 2.5rem;
+  }
+  .about-inner { max-width: 860px; margin: 0 auto; }
+  .about-strip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 700;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+  }
+  .about-strip h2 em { font-style: italic; color: #9db5d0; }
+  .about-strip p {
+    font-size: 1rem; color: #a8bdd4;
+    max-width: 640px; line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+  .skill-pill {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 2px;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.85rem; color: #c8daeb;
+  }
+  .skill-pill strong { color: white; display: block; margin-bottom: 0.2rem; font-weight: 500; }
+
+  /* CONTACT FOOTER */
+  footer {
+    background: var(--ink);
+    color: white;
+    padding: 3rem 2.5rem;
+    text-align: center;
+  }
+  footer p { color: #888; font-size: 0.9rem; margin-bottom: 0.5rem; }
+  footer a { color: #c89a7a; text-decoration: none; }
+  footer .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 0 1.2rem; }
+    .nav-links { gap: 1rem; }
+    .hero, .main { padding-left: 1.2rem; padding-right: 1.2rem; }
+    .index-bar { padding: 1rem 1.2rem; }
+    .section-number { font-size: 3rem; }
+    .sample-card-header { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#">Stephen Tiliki</a>
+  <ul class="nav-links">
+    <li><a href="#samples">Samples</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="mailto:stephenpundit@gmail.com">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Writing Portfolio — Automotive &amp; Technology</p>
+  <h1>Words that move<br><em>people</em> — and cars.</h1>
+  <p class="hero-sub">
+    Senior long-form copywriter with 5+ years turning complex automotive technology, EV innovation, and digital mobility into content that ranks, converts, and sticks. Built for brands that need depth, not filler.
+  </p>
+  <div class="hero-meta">
+    <span><strong>Specialisms</strong> — Automotive, B2B SaaS, EV &amp; Mobility</span>
+    <span><strong>Formats</strong> — Long-form articles, whitepapers, product pages, guides, editorial</span>
+    <span><strong>Based</strong> — Lisbon, Portugal (Remote-ready)</span>
+  </div>
+</section>
+
+<div class="index-bar">
+  <span class="index-label">Jump to</span>
+  <a class="index-chip" href="#sample1">EV Buying Guide</a>
+  <a class="index-chip" href="#sample2">ADAS Whitepaper</a>
+  <a class="index-chip" href="#sample3">Product Page</a>
+  <a class="index-chip" href="#sample4">Connectivity Article</a>
+  <a class="index-chip" href="#sample5">Editorial Essay</a>
+</div>
+
+<main class="main" id="samples">
+
+  <!-- ===== SAMPLE 1: LONG-FORM ARTICLE / BUYING GUIDE ===== -->
+  <div class="section-header">
+    <span class="section-number">01</span>
+    <div class="section-title-group">
+      <span class="section-kicker">Long-form article</span>
+      <h2 class="section-title">EV Buying Guide</h2>
+    </div>
+    <p class="section-desc">Demonstrates audience empathy, technical depth, and SEO-aware structure</p>
+  </div>
+
+  <div class="sample-card" id="sample1">
+    <div class="sample-card-header">
+      <div>
+        <p class="sample-type">Long-form article · ~1,400 words</p>
+        <h3 class="sample-title">The Real Cost of Going Electric: A No-Nonsense Guide for First-Time EV Buyers</h3>
+      </div>
+      <span class="sample-badge badge-article">Buying Guide</span>
+    </div>
+    <div class="sample-body">
+
+      <p>You've done the maths on fuel savings. You've read the think-pieces about the environment. You've nodded along at dinner parties when someone mentions their Tesla's autopilot. But when it comes to actually <em>buying</em> an electric vehicle, a very human question keeps surfacing: <strong>what does this actually cost me?</strong></p>
+
+      <p>Not the sticker price. The real cost — charging infrastructure, insurance premiums, battery degradation over time, resale value, the cost of the charger you'll bolt to your garage wall. This guide gives you the unfiltered version, so you can decide with your eyes open.</p>
+
+      <h2>The purchase price gap is closing — but it's not gone yet</h2>
+
+      <p>In 2020, the average premium for an EV over its petrol equivalent was north of €8,000 in most European markets. By 2024, that gap had narrowed to roughly €3,000 to €5,000 across comparable segments — and in some categories, like compact crossovers, it has essentially disappeared.</p>
+
+      <p>Government incentives do a lot of the heavy lifting here. Portugal's EV purchase subsidy of up to €3,000, the UK's plug-in grant, and Germany's Umweltbonus each chip away at the sticker shock. But incentives are politically fragile — they can be revised or removed with little notice, as buyers in several markets discovered when subsidy programs were abruptly cut in 2023.</p>
+
+      <blockquote>The smarter frame isn't "how much more does an EV cost today?" It's "what do I save over three years of ownership?" That's where the real equation lives.</blockquote>
+
+      <h2>Home charging: the hidden infrastructure cost</h2>
+
+      <p>Most EV owners charge at home overnight — it's the cheapest, most convenient way to keep your battery topped up. But getting there requires a wallbox home charger installation, which runs between €700 and €1,400 across most European markets once you account for hardware, installation, and any necessary electrical panel upgrades.</p>
+
+      <div class="highlight-box">
+        <strong>Quick calculation:</strong> A standard 7.4kW wallbox fully charges a 60kWh battery (roughly 400km of range) in 8–9 hours overnight. At Portugal's average off-peak electricity rate of €0.11/kWh, that's about €6.60 per full charge — versus roughly €65 to cover the same distance in a mid-size petrol car.
+      </div>
+
+      <p>If you live in an apartment without dedicated parking, the calculus gets trickier. Public charging networks have expanded dramatically, but reliance on rapid chargers — at €0.45 to €0.70/kWh in many European markets — eats into your savings significantly.</p>
+
+      <h2>Battery degradation: what the brochure won't tell you</h2>
+
+      <p>Every lithium-ion battery degrades over time. The good news: modern EV batteries degrade far slower than early-generation ones. Real-world data from high-mileage fleet operators shows most batteries retain 80–85% of their original capacity after 200,000 kilometres when managed properly.</p>
+
+      <p>What "managed properly" means in practice:</p>
+      <ul>
+        <li>Keep daily charge levels between 20% and 80% for routine use</li>
+        <li>Avoid frequent rapid charging as your primary charging method</li>
+        <li>Store in moderate temperatures — extreme cold or heat accelerates degradation</li>
+        <li>Use your manufacturer's battery management software, not third-party apps</li>
+      </ul>
+
+      <p>Battery warranties — typically 8 years or 160,000km in the EU — provide a meaningful safety net for first-time buyers. And the emerging second-life battery market means end-of-vehicle-life doesn't mean end-of-battery-life.</p>
+
+      <h2>Insurance, servicing, and the parts you won't need to buy</h2>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">~30%</span>
+          <span class="stat-label">Fewer moving parts vs petrol</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">£300</span>
+          <span class="stat-label">Avg. annual EV service saving (UK)</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">2x</span>
+          <span class="stat-label">Longer brake lifespan (regenerative braking)</span>
+        </div>
+      </div>
+
+      <p>EVs have significantly fewer moving parts than internal combustion engines. No oil changes, no timing belts, no exhaust system maintenance. Brake pads last longer thanks to regenerative braking doing most of the deceleration work. The result is lower servicing costs — typically 20–35% less annually, according to fleet data from major leasing companies.</p>
+
+      <p>Insurance is the one area where EVs often cost more — typically 5–15% higher premiums, driven by higher repair costs for specialist components and the relative scarcity of trained technicians. This premium is shrinking as the technician workforce grows, but it's worth factoring into your first-year projections.</p>
+
+      <h2>What does this mean for you?</h2>
+
+      <p>Run the numbers honestly. Factor in your actual driving patterns, your home charging situation, the incentives available in your market right now, and your typical ownership period. For most drivers covering 15,000–20,000km per year, an EV reaches cost parity with a comparable petrol car within two to three years of ownership — and outperforms it financially from there.</p>
+
+      <p>The real cost of going electric isn't higher than petrol ownership. For most buyers, it's already lower — you just have to account for it in the right place in the timeline.</p>
+
+    </div>
+    <div class="sample-footer">
+      <span>📐 SEO-structured</span>
+      <span>🎯 Conversion-aware</span>
+      <span>📊 Data-backed claims</span>
+      <span>✍️ First-person consumer voice</span>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- ===== SAMPLE 2: WHITEPAPER ===== -->
+  <div class="section-header">
+    <span class="section-number">02</span>
+    <div class="section-title-group">
+      <span class="section-kicker">Whitepaper excerpt</span>
+      <h2 class="section-title">ADAS Technology Whitepaper</h2>
+    </div>
+    <p class="section-desc">Shows ability to synthesise technical complexity for enterprise audiences</p>
+  </div>
+
+  <div class="sample-card" id="sample2">
+    <div class="sample-card-header">
+      <div>
+        <p class="sample-type">Whitepaper excerpt · B2B / Enterprise audience</p>
+        <h3 class="sample-title">Beyond the Lane: How Advanced Driver Assistance Systems Are Reshaping Fleet Risk</h3>
+      </div>
+      <span class="sample-badge badge-whitepaper">Whitepaper</span>
+    </div>
+    <div class="sample-body">
+
+      <p><em>Executive Summary:</em> Advanced Driver Assistance Systems (ADAS) are no longer optional equipment on premium vehicles — they are fast becoming the baseline expectation for fleet procurement, insurance underwriting, and regulatory compliance across European markets. This paper examines the commercial implications for fleet operators, the data landscape ADAS generates, and the strategic decisions fleet managers need to make today.</p>
+
+      <h2>The ADAS taxonomy: what fleet managers actually need to know</h2>
+
+      <p>The term "ADAS" covers an enormous range of capabilities — from basic rear parking sensors to fully supervised highway driving. For fleet procurement purposes, the distinction that matters most is between <em>passive</em> and <em>active</em> systems.</p>
+
+      <p>Passive ADAS — lane departure warnings, blind-spot indicators, forward collision alerts — informs the driver without intervening. Active ADAS — automatic emergency braking (AEB), adaptive cruise control, lane-keeping assist — intervenes directly in the driving event when a threshold is reached.</p>
+
+      <div class="highlight-box">
+        <strong>Why this distinction matters for fleet risk:</strong> Euro NCAP data shows AEB systems reduce rear-end collision frequency by 38% in real-world urban conditions. For a fleet of 200 vehicles, even a modest reduction in at-fault collision rate translates to material savings in excess premiums, driver downtime, and third-party liability exposure.
+      </div>
+
+      <h2>The data layer: ADAS as a fleet intelligence platform</h2>
+
+      <p>Modern ADAS generates continuous data streams — sensor readings, intervention triggers, near-miss events, driver response times. In isolation, this data is noise. Integrated with fleet management software, it becomes a predictive risk model.</p>
+
+      <p>Progressive fleet operators are already using ADAS event data to:</p>
+      <ul>
+        <li>Identify individual driver risk profiles and trigger targeted coaching interventions</li>
+        <li>Negotiate usage-based insurance premiums with actuarial-grade telemetry</li>
+        <li>Demonstrate duty-of-care compliance to corporate clients in regulated sectors</li>
+        <li>Benchmark route-level hazard exposure across their network</li>
+      </ul>
+
+      <p>The challenge is integration. Most OEM ADAS data streams are proprietary, creating silos that frustrate fleet managers trying to compare risk across mixed-manufacturer fleets. Third-party telematics providers are beginning to bridge this gap, but standardisation at the EU level — currently under discussion within the General Safety Regulation framework — remains several years away.</p>
+
+      <h2>What forward-looking fleet operators should do now</h2>
+
+      <p>The window to build competitive advantage through ADAS data is open — and it will not stay open indefinitely. Operators who embed ADAS data into their risk management frameworks now will have a 12–18 month head start on the majority of the market when regulatory standardisation arrives.</p>
+
+      <p>Three immediate priorities for fleet decision-makers:</p>
+      <ul>
+        <li><strong>Audit your current ADAS capability mix</strong> — know what your fleet generates, not just what's listed in the spec sheet</li>
+        <li><strong>Select a telematics partner with OEM API relationships</strong> — proprietary data is only useful if you can actually access it</li>
+        <li><strong>Define the intervention logic</strong> before deploying driver-level data — legal, HR, and union frameworks must be in place before ADAS data is used in performance management</li>
+      </ul>
+
+      <blockquote>ADAS is not a safety feature anymore. It's a data infrastructure decision. The fleets that understand this earliest will absorb the competitive benefit longest.</blockquote>
+
+    </div>
+    <div class="sample-footer">
+      <span>🏢 Enterprise B2B voice</span>
+      <span>📋 Technical precision</span>
+      <span>⚡ Strategic framing</span>
+      <span>📎 Action-oriented conclusions</span>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- ===== SAMPLE 3: PRODUCT PAGE ===== -->
+  <div class="section-header">
+    <span class="section-number">03</span>
+    <div class="section-title-group">
+      <span class="section-kicker">Product page copy</span>
+      <h2 class="section-title">EV Charging Solution</h2>
+    </div>
+    <p class="section-desc">Conversion-focused copy translating features into user benefits</p>
+  </div>
+
+  <div class="sample-card" id="sample3">
+    <div class="sample-card-header">
+      <div>
+        <p class="sample-type">Product page · Consumer-facing digital platform</p>
+        <h3 class="sample-title">VoltHome Pro — Smart Home EV Charger [Product Page Copy]</h3>
+      </div>
+      <span class="sample-badge badge-product">Product Page</span>
+    </div>
+    <div class="sample-body">
+
+      <h2>Charge smarter. Not just faster.</h2>
+
+      <p>Your EV deserves more than a cable. VoltHome Pro is the home charging system built for drivers who want complete control over how, when, and how much they spend topping up — without having to think about it every morning.</p>
+
+      <h3>What makes it different</h3>
+
+      <p><strong>Smart scheduling, automatically.</strong> VoltHome Pro learns your energy tariff, reads your local grid's peak hours, and schedules overnight charging for the cheapest window. You set a departure time. We handle the rest.</p>
+
+      <p><strong>Solar-ready from day one.</strong> If you have — or plan to install — solar panels, VoltHome Pro integrates natively with leading inverter systems. Charge from your own roof first, draw from the grid only when needed.</p>
+
+      <p><strong>Real-time cost tracking.</strong> Every session logged, every kilowatt accounted for. The companion app shows exactly what each charge cost, your monthly totals, and your CO₂ savings — in the units that matter to you.</p>
+
+      <div class="stat-row">
+        <div class="stat">
+          <span class="stat-num">7.4kW</span>
+          <span class="stat-label">Charge rate</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">5 min</span>
+          <span class="stat-label">Installation typical</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num">€6.60</span>
+          <span class="stat-label">Avg. cost per full charge</span>
+        </div>
+      </div>
+
+      <h3>Built to last. Built to belong.</h3>
+
+      <p>IP65-rated for outdoor installation. Compatible with all Type 2 EVs on European roads. Five-year warranty covering parts and software. A design that looks like it belongs in a modern home — not like industrial equipment bolted to your wall.</p>
+
+      <h3>Who it's for</h3>
+      <ul>
+        <li><strong>New EV owners</strong> making their first home charging decision</li>
+        <li><strong>Switchers</strong> upgrading from a basic 3-pin cable setup</li>
+        <li><strong>Solar panel owners</strong> wanting to close the renewable energy loop</li>
+        <li><strong>Fleet managers</strong> equipping driver home installations at scale</li>
+      </ul>
+
+      <blockquote>Customers who switch to smart scheduled charging save an average of €340 per year compared to ad-hoc top-ups on peak-rate tariffs.</blockquote>
+
+      <p>VoltHome Pro is available through our network of certified installers across Portugal, Spain, and the UK. Most installations complete within a single morning appointment.</p>
+
+    </div>
+    <div class="sample-footer">
+      <span>💡 Feature-to-benefit translation</span>
+      <span>🛒 Conversion-optimised</span>
+      <span>🎯 Audience segmentation</span>
+      <span>📣 Brand voice consistent</span>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- ===== SAMPLE 4: LONG-FORM EDITORIAL ARTICLE ===== -->
+  <div class="section-header">
+    <span class="section-number">04</span>
+    <div class="section-title-group">
+      <span class="section-kicker">Long-form editorial</span>
+      <h2 class="section-title">Connected Car Technology</h2>
+    </div>
+    <p class="section-desc">Demonstrates SEO depth, storytelling, and emerging-trend authority</p>
+  </div>
+
+  <div class="sample-card" id="sample4">
+    <div class="sample-card-header">
+      <div>
+        <p class="sample-type">Editorial article · Digital automotive platform · ~1,200 words</p>
+        <h3 class="sample-title">Your Car Knows More About You Than Your Phone Does. Here's What Happens to That Data.</h3>
+      </div>
+      <span class="sample-badge badge-article">Feature Article</span>
+    </div>
+    <div class="sample-body">
+
+      <p>The modern connected car generates between 25 gigabytes and 4 terabytes of data <em>per hour</em> depending on its sensor configuration. It knows where you park, how hard you brake, what music you play at what time of day, who you call on your morning commute, and — if the cabin cameras are active — roughly what your emotional state looks like behind the wheel.</p>
+
+      <p>This is not speculative. This is today's mid-range family SUV, shipped to a dealer in your city last month.</p>
+
+      <p>The question of what happens to this data is one of the least discussed and most consequential conversations in consumer technology right now — and it's happening inside an industry that most data privacy advocates have barely started paying attention to.</p>
+
+      <h2>The connected car data ecosystem: who's actually in the room</h2>
+
+      <p>When you connect your car, you're rarely dealing with a single company. The typical data flow from a connected vehicle involves the OEM (the manufacturer), a tier-one telematics provider, potentially a third-party infotainment partner, your insurance company if you've opted into any usage-based product, and whatever app ecosystem your head unit runs on.</p>
+
+      <p>Each of these parties operates under its own data agreement, with its own retention policies, and often in different legal jurisdictions. The privacy notice in your vehicle handbook — the one in small print between the warranty section and the tyre pressure table — typically runs to 30 or 40 pages and can be amended at will.</p>
+
+      <div class="highlight-box">
+        <strong>The consent problem:</strong> A 2023 analysis by the Mozilla Foundation found that all 25 major car brands it reviewed failed its minimum privacy standards. Sixteen were described as collecting "too much personal data." Many shared or sold driver data to third parties, law enforcement, or both — under consent frameworks that few drivers had meaningfully engaged with.
+      </div>
+
+      <h2>The value exchange: what you get back</h2>
+
+      <p>It would be misleading to present connected car data as purely extractive. The same data pipelines that raise privacy concerns also power genuinely useful services.</p>
+
+      <p>Over-the-air software updates — the mechanism Tesla popularised and the rest of the industry is now racing to replicate — are impossible without persistent connectivity. They allow manufacturers to fix safety-critical software issues, add new features, and improve vehicle performance without a physical workshop visit. For consumers, this is a significant quality-of-life upgrade over the previous model of "book a service, leave your car for a day, hope the fix is actually applied."</p>
+
+      <p>Predictive maintenance is another tangible benefit. When your vehicle's sensor array detects early indicators of brake pad wear, coolant pressure anomalies, or battery cell degradation, connected services can flag them before they become roadside incidents. For fleet operators, this capability alone can reduce unplanned downtime by 20–30%.</p>
+
+      <p>Remote diagnostics, real-time traffic routing that uses anonymised fleet data to identify congestion faster than any static map, automatic emergency call systems (eCall is now mandatory in new EU vehicles) — these are all downstream benefits of the same data infrastructure that generates the privacy concerns.</p>
+
+      <h2>Where the regulation currently sits</h2>
+
+      <p>The EU's General Data Protection Regulation applies to personal data generated by connected vehicles, but enforcement has been inconsistent and the automotive sector's lobbying resources are considerable. The proposed EU Data Act — which came into force in 2024 — is designed to give vehicle owners explicit rights over the data their cars generate, including the right to share it with third parties of their choice (repair workshops, insurance providers, fleet management platforms) rather than solely through OEM-controlled channels.</p>
+
+      <p>This is significant for the competitive dynamics of the automotive data market. If implemented effectively, it breaks the OEM data monopoly and enables a more open ecosystem — one where consumers benefit from competition rather than being locked into whatever data products their car manufacturer has chosen to develop.</p>
+
+      <h2>What this means for buyers today</h2>
+
+      <p>If you're purchasing a connected vehicle in the next 12 months, three things are worth investigating before you sign:</p>
+
+      <ul>
+        <li><strong>Data sharing defaults</strong> — most connected vehicles are opt-out rather than opt-in for data collection. Find the setting, understand what it covers, and decide actively rather than passively.</li>
+        <li><strong>Third-party data agreements</strong> — ask your dealer which third parties your vehicle's data is shared with by default, and whether you can restrict this sharing without losing core functionality.</li>
+        <li><strong>Retention periods</strong> — some OEM data policies retain granular location and behavioural data for multiple years. Know how long your data persists and under what circumstances it can be accessed by parties beyond the manufacturer.</li>
+      </ul>
+
+      <p>The connected car is one of the most sophisticated personal data collection devices most consumers will ever own. It deserves the same scrutiny we've learned — slowly and painfully — to apply to our smartphones.</p>
+
+      <p>The conversation is happening. It just needs more people in the room.</p>
+
+    </div>
+    <div class="sample-footer">
+      <span>🔍 Investigative angle</span>
+      <span>📈 SEO intent-matched</span>
+      <span>⚖️ Balanced perspective</span>
+      <span>🌍 EU regulatory context</span>
+    </div>
+  </div>
+
+  <div class="ornament">· · ·</div>
+
+  <!-- ===== SAMPLE 5: EDITORIAL ESSAY ===== -->
+  <div class="section-header">
+    <span class="section-number">05</span>
+    <div class="section-title-group">
+      <span class="section-kicker">Editorial essay</span>
+      <h2 class="section-title">Mobility Futures — Opinion</h2>
+    </div>
+    <p class="section-desc">Demonstrates strategic thinking, distinctive voice, and category authority</p>
+  </div>
+
+  <div class="sample-card" id="sample5">
+    <div class="sample-card-header">
+      <div>
+        <p class="sample-type">Opinion editorial · Industry publication · ~900 words</p>
+        <h3 class="sample-title">The Electric Car Won. Now the Real Fight Begins.</h3>
+      </div>
+      <span class="sample-badge badge-editorial">Editorial</span>
+    </div>
+    <div class="sample-body">
+
+      <p>At some point in the last eighteen months, the debate about <em>whether</em> electric vehicles would succeed quietly ended. Nobody declared a winner. The arguments just stopped. You can tell an industry argument is over when the people who were making it start writing "how to prepare for the EV transition" instead of "here's why the EV transition won't happen."</p>
+
+      <p>The EV transition is happening. That's settled. The interesting question — the one the automotive industry, urban planners, energy companies, and governments are now urgently trying to answer — is: what does it actually change?</p>
+
+      <h2>More than a powertrain swap</h2>
+
+      <p>The seductive simplicity of the EV conversation has always been its apparent neatness. Internal combustion engine out, electric motor in. Same roads, same car culture, same love of driving — just cleaner. A technology substitution, not a civilisational shift.</p>
+
+      <p>This is probably wrong, and the automotive industry knows it — even if it's not always saying so publicly.</p>
+
+      <p>Electric vehicles are software platforms that happen to have wheels. They're connected to manufacturer clouds, to energy grids, to insurance actuarial models, to urban traffic management systems. They generate data. They receive updates. They interact with infrastructure in ways that petrol cars never did and never could. The powertrain swap brings with it an entire new relationship between vehicle, owner, manufacturer, city, and energy system.</p>
+
+      <blockquote>This isn't a car that runs on electricity. It's a node in a network that sometimes takes you places.</blockquote>
+
+      <h2>The infrastructure paradox</h2>
+
+      <p>Every technology transition produces an infrastructure lag. The internet required decades of cable, the smartphone required cellular networks, and the EV requires — at minimum — a charging network capable of matching the convenience of the petrol station, and an electricity grid that can absorb millions of new high-draw charging events without buckling.</p>
+
+      <p>Neither of these is close to ready in most markets. Public charging infrastructure is growing rapidly, but it is growing from a very low base and with deeply uneven distribution. Rural and suburban drivers — who often have the longest commutes and the fewest alternatives to private car ownership — are in many cases worse served by today's charging network than urban dwellers who don't actually need a car at all.</p>
+
+      <p>The grid problem is less visible but potentially more consequential. Current electricity generation and distribution infrastructure in most European countries was not designed to support mass EV adoption. The upgrades required are generational in scale and capital intensity. The timelines for completing them are measured in decades. The transition to electric mobility is running considerably ahead of the infrastructure that's supposed to support it.</p>
+
+      <h2>The geography of winners and losers</h2>
+
+      <p>Every major technology transition reshuffles economic geography — it creates new centres of gravity and erodes old ones. The EV transition is particularly dramatic in this respect.</p>
+
+      <p>The internal combustion engine supply chain employs millions of people across Europe — in the precision machined components, exhaust systems, fuel injection technology, and transmission engineering that electric vehicles simply don't need. These jobs are concentrated in specific regions: Baden-Württemberg in Germany, the West Midlands in England, parts of northern Italy and central France. They are not jobs that retrain easily or relocate conveniently.</p>
+
+      <p>Meanwhile, the new economic centres of EV production — battery gigafactories, semiconductor fabrication, power electronics manufacturing — are gravitating toward different geographies, shaped by raw material access, energy costs, and government incentives rather than inherited automotive manufacturing clusters.</p>
+
+      <p>This transition will produce real economic harm in real communities, alongside the genuine environmental benefits. Pretending otherwise doesn't serve the workers or the transition.</p>
+
+      <h2>What needs to be said more loudly</h2>
+
+      <p>The EV has won the technology debate. It has not yet won the mobility debate. A world of electric cars in which the car remains the dominant — often the only — mode of access to employment, healthcare, education, and social connection, is not a transformed mobility system. It is a cleaner version of an unreformed one.</p>
+
+      <p>The automotive industry has an interest in presenting the EV as the solution to everything, because it preserves the primacy of the product it sells. But the harder, more important work is building mobility systems in which the private car — electric or otherwise — is one option among many, rather than the only option available.</p>
+
+      <p>Electric vehicles are a necessary part of that system. They are not, by themselves, sufficient. The fight that matters now is not about the powertrain. It's about what kind of cities, what kind of infrastructure, and what kind of mobility access we build around them.</p>
+
+      <p>That fight is just beginning — and it's considerably more interesting than the one we just finished.</p>
+
+    </div>
+    <div class="sample-footer">
+      <span>✍️ Distinctive editorial voice</span>
+      <span>🧠 Strategic perspective</span>
+      <span>🌱 EV &amp; mobility expertise</span>
+      <span>📰 Thought leadership format</span>
+    </div>
+  </div>
+
+</main>
+
+<!-- ABOUT STRIP -->
+<section class="about-strip" id="about">
+  <div class="about-inner">
+    <h2>Content that earns its<br><em>place on the page</em></h2>
+    <p>Five years of long-form content work across B2B SaaS, technology, and digital platforms — learning what makes readers stay, what makes them convert, and what makes them come back.</p>
+    <p>Currently completing an MSc in Digital Marketing &amp; Analytics at NOVA IMS, Lisbon — which means the SEO frameworks and performance thinking I apply to content come with the academic rigour to back them up.</p>
+    <div class="skills-grid">
+      <div class="skill-pill">
+        <strong>Long-form content</strong>
+        Articles, guides, whitepapers, editorial
+      </div>
+      <div class="skill-pill">
+        <strong>SEO &amp; content strategy</strong>
+        Ahrefs, Semrush, Surfer SEO, Frase
+      </div>
+      <div class="skill-pill">
+        <strong>Technical translation</strong>
+        Complex tech into clear, engaging narrative
+      </div>
+      <div class="skill-pill">
+        <strong>Cross-functional collaboration</strong>
+        UX, product, marketing, SEO teams
+      </div>
+      <div class="skill-pill">
+        <strong>Brand voice &amp; consistency</strong>
+        QA, editing, proofreading, governance
+      </div>
+      <div class="skill-pill">
+        <strong>AI-assisted workflows</strong>
+        Claude, ChatGPT, Gemini — used intelligently
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-name">Stephen Tiliki</p>
+  <p>Senior Copywriter · Lisbon, Portugal</p>
+  <p style="margin-top: 0.8rem;"><a href="mailto:stephenpundit@gmail.com">stephenpundit@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+351920613332">+351 920 613 332</a></p>
+  <p style="margin-top: 2rem; font-size: 0.78rem; color: #555;">Portfolio compiled for Wire IT Copywriter application · 2025</p>
+</footer>
+
+</body>
+</html>
